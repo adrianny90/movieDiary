@@ -11,23 +11,36 @@
   <!-- NAVIGATION -->
   <nav
     id="navbar"
-    class="flex justify-between items-center py-3 px-12 bg-[#021526]"
+    class="flex justify-between items-center py-3 px-4 md:px-12 bg-[#021526]"
   >
-    <div id="logo" class="text-white text-3xl font-black">AwesomeFilms</div>
-    <ul id="links" class="flex flex-between gap-4 text-white text-xl">
-      <li><a class="underline">Popular</a></li>
-      <li><a>Favorites</a></li>
+    <div id="logo" class="text-white text-xl md:text-3xl font-black">
+      AwesomeFilms
+    </div>
+    <ul id="links" class="hidden md:flex flex-between gap-4 text-white text-xl">
+      <li>
+        <a href="./index.html" class="underline hover:text-fuchsia-400"
+          >Popular</a
+        >
+      </li>
+      <li>
+        <a href="./journal.html" class="hover:text-fuchsia-400">Favorites</a>
+      </li>
     </ul>
+    <div id="burger" class="block w-[25px] md:hidden">
+      <img src="./img/burger-bar.png" alt="burger menu" />
+    </div>
   </nav>
   <!-- HEADER -->
   <header
     id="hero"
     class="bg-[url(./img/bg_img.png)] min-h-[50vh] flex flex-col items-center justify-center gap-10 bg-center bg-cover bg-red-400"
   >
-    <h1 class="text-7xl font-extrabold text-center text-white">AwesomeFilms</h1>
+    <h1 class="text-4xl md:text-7xl font-extrabold text-center text-white">
+      AwesomeFilms
+    </h1>
     <div
       id="Searchbar"
-      class="bg-white rounded-full flex items-center gap-4 pr-3 pl-3 py-1"
+      class="bg-white relative rounded-full flex items-center gap-4 pr-3 pl-3 py-1"
     >
       <input
         type="text"
@@ -44,7 +57,7 @@
       /></a>
       <div
         id="searchResults"
-        class="absolute rounded bg-white w-[50vw] top-[45vh] left-[25vw] shadow mx-auto px-4 py-4"
+        class="hidden absolute top-[110%] left-[50%] translate-x-[-50%] w-[80vw] md:w-[50vw] bg-white rounded shadow p-4"
       >
         <div class="flex justify-between">
           <span class="font-bold">Results</span>
@@ -56,7 +69,10 @@
           /></a>
         </div>
 
-        <ul id="resultList" class="max-h-[29vh] text-xl overflow-auto"></ul>
+        <ul
+          id="resultList"
+          class="max-h-[29vh] text-sm md:text-xl overflow-auto"
+        ></ul>
       </div>
     </div>
   </header>

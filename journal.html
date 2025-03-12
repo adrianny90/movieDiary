@@ -4,7 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Journal</title>
-    <script src="journal.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body></body>
+  <!-- LUKAS PART START -->
+  <!-- NAVIGATION -->
+  <nav
+    id="navbar"
+    class="flex justify-between items-center py-3 px-4 md:px-12 bg-[#021526]"
+  >
+    <div id="logo" class="text-white text-xl md:text-3xl font-black">
+      AwesomeFilms
+    </div>
+    <ul id="links" class="hidden md:flex flex-between gap-4 text-white text-xl">
+      <li>
+        <a href="./index.html" class="underline hover:text-fuchsia-400"
+          >Popular</a
+        >
+      </li>
+      <li>
+        <a href="./journal.html" class="hover:text-fuchsia-400">Favorites</a>
+      </li>
+    </ul>
+    <div id="burger" class="block w-[25px] md:hidden">
+      <img src="./img/burger-bar.png" alt="burger menu" />
+    </div>
+  </nav>
+  <!-- HEADER -->
+  <header
+    id="hero"
+    class="bg-[url(./img/bg_img.png)] min-h-[35vh] flex flex-col items-center justify-center gap-10 bg-center bg-cover bg-red-400"
+  >
+    <h1 class="text-4xl md:text-7xl font-extrabold text-center text-white">
+      AwesomeFilms
+    </h1>
+  </header>
+  <!-- LUKAS PART END -->
+  <body>
+    <script type="module" src="journal.js" defer></script>
+  </body>
 </html>
