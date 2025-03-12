@@ -5,6 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home page</title>
     <script src="main.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
+
+  <!-- LUKAS PART START -->
+  <nav
+    id="navbar"
+    class="flex justify-between items-center py-3 px-12 bg-[#021526]"
+  >
+    <div id="logo" class="text-white text-3xl font-black">AwesomeFilms</div>
+    <ul id="links" class="flex flex-between gap-4 text-white text-xl">
+      <li><a>Popular</a></li>
+      <li><a>Favorites</a></li>
+    </ul>
+  </nav>
+  <header
+    id="hero"
+    class="bg-[url(./img/bg_img.png)] min-h-[50vh] flex flex-col items-center justify-center gap-10 bg-center bg-cover bg-red-400"
+  >
+    <h1 class="text-7xl font-extrabold text-center text-white">AwesomeFilms</h1>
+    <div
+      id="Searchbar"
+      class="bg-white rounded-full flex items-center gap-4 pr-1 pl-3 py-1"
+    >
+      <input
+        type="text"
+        id="searchField"
+        name="searchfield"
+        placeholder="Search movie..."
+      />
+      <!-- <span> | </span> -->
+      <a id="searchBtn" class="hover:cursor-pointer"
+        ><img
+          src="./img/icon_search.png"
+          id="searchIcon"
+          alt="search icon"
+          class="w-[20px] h-[100%]"
+      /></a>
+      <div
+        id="searchResults"
+        class="absolute rounded bg-white w-[50vw] top-[45vh] left-[25vw] shadow mx-auto px-4 py-4"
+      >
+        <div class="flex justify-between">
+          <span class="font-bold">Results</span>
+          <a id="closeBtn" class="hover:cursor-pointer"
+            ><img
+              src="./img/close.png"
+              alt="close"
+              class="w-[15px] ml-auto mb-4"
+          /></a>
+        </div>
+
+        <ul id="resultlist" class="max-h-[29vh] text-xl overflow-auto"></ul>
+      </div>
+    </div>
+  </header>
+  <!-- LUKAS PART END -->
   <body></body>
 </html>
