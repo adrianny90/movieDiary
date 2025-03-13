@@ -1,5 +1,5 @@
-import { fetchingMovies } from "./modules/fetch.js";
-import { renderProducts } from "./modules/smallUI.js";
+import { fetchingMovies } from "./modules/fetch2.js";
+import { renderProducts } from "./modules/smallUI2.js";
 import { retrieveMovies } from "./modules/store.js";
 
 const AllMovies = await fetchingMovies();
