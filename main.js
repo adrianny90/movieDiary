@@ -35,7 +35,7 @@ const displayResult = (movie) => {
     const firstLi = resultList.querySelector("li");
     console.log(firstLi);
     if (firstLi) {
-      firstLi.scrollIntoView({ behavior: "smooth", block: "start" });
+      firstLi.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, 1);
 };
