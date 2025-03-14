@@ -1,12 +1,18 @@
-import { fetchingMovies } from "./modules/fetch2.js";
-import { renderProducts } from "./modules/smallUI2.js";
-import { retrieveMovies } from "./modules/store.js";
+// const favMovies = retrieveMovies();
 
-const AllMovies = await fetchingMovies();
-console.log(AllMovies);
+import { renderProducts } from "./modules/ui.js";
+import { retrieveMovies, storeMovies } from "./modules/store.js";
+const btnFavourite = document.getElementById("btn-favourities");
 
-const productsContainer = document.getElementById("products-container");
-
-AllMovies?.forEach((product) => renderProducts(product, productsContainer));
-
-const favMovies = retrieveMovies();
+const refreshView = async () => {
+  const favouritiesContainer = document.getElementById("favourities-container");
+  try {
+    const storedMovies = await retrieveMovies();
+    storedMovies?.forEach((film) => renderProducts(film, favouritiesContainer));
+  } catch (error) {
+    ("error retrieving favourite movies");
+  }
+};
+//btnFavourite.addEventListener("click", refreshView());
+refreshView();
+export { refreshView };

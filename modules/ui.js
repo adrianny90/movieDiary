@@ -1,6 +1,7 @@
 import { fetchMovieList } from "./network.js";
 import { addToMovieList } from "./storage.js";
-
+import { storeMovies } from "./store.js";
+import { refreshView } from "../journal.js";
 const renderProducts = (movie, container) => {
   if (!movie || !container) return;
 
@@ -15,6 +16,8 @@ const renderProducts = (movie, container) => {
   favoriteBtn.innerHTML = "🤍"; // Default to empty heart
   favoriteBtn.addEventListener("click", () => {
     favoriteBtn.innerHTML = favoriteBtn.innerHTML === "❤️" ? "🤍" : "❤️";
+    storeMovies(movie);
+    //refreshView();
   });
 
   // Movie Image
