@@ -58,6 +58,7 @@ searchCloseBtn.addEventListener("click", () => {
 
 import { renderProducts } from "./modules/ui.js";
 import { fetchMovieList } from "./modules/network.js";
+import { checkStatus } from "./modules/store.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   const productsContainer = document.getElementById("products-container");
@@ -75,7 +76,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     console.log("Fetched movies:", movies);
-    movies.forEach((movie) => renderProducts(movie, productsContainer));
+    movies.forEach((movie) => {
+      const statusFilm = checkStatus(movie);
+      let state = false;
+      if (statusFilm) state = true;
+      renderProducts(movie, productsContainer, state);
+    });
   } catch (error) {
     console.error("Error fetching movies:", error);
   }

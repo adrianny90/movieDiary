@@ -25,8 +25,17 @@ const storeMovies = (film) => {
 
 const retrieveMovies = () => {
   const likedMovies = JSON.parse(localStorage.getItem("movies")) || [];
-  console.log(likedMovies);
+  //console.log(likedMovies);
   return likedMovies;
 };
-
-export { storeMovies, retrieveMovies };
+const checkStatus = (film) => {
+  const oldMovies = JSON.parse(localStorage.getItem("movies")) || [];
+  let likeStatus = false;
+  if (oldMovies.length > 0) {
+    oldMovies.forEach((oldfFilm) => {
+      if (oldfFilm.title === film.title) likeStatus = true;
+    });
+  }
+  return likeStatus;
+};
+export { storeMovies, retrieveMovies, checkStatus };
