@@ -1,8 +1,6 @@
-import { fetchMovieList } from "./network.js";
-import { addToMovieList } from "./storage.js";
 import { storeMovies } from "./store.js";
-import { refreshView } from "../journal.js";
-const renderProducts = (movie, container) => {
+
+const renderProducts = (movie, container, status) => {
   if (!movie || !container) return;
 
   // Create the card container
@@ -13,11 +11,15 @@ const renderProducts = (movie, container) => {
   // Favorite Button
   const favoriteBtn = document.createElement("button");
   favoriteBtn.className = "absolute top-2 right-4 text-white text-2xl";
-  favoriteBtn.innerHTML = "🤍"; // Default to empty heart
+  if (status) {
+    favoriteBtn.innerHTML = "❤️"; // Default to empty heart
+  } else {
+    favoriteBtn.innerHTML = "🤍"; // Default to empty heart
+  }
+
   favoriteBtn.addEventListener("click", () => {
     favoriteBtn.innerHTML = favoriteBtn.innerHTML === "❤️" ? "🤍" : "❤️";
     storeMovies(movie);
-    //refreshView();
   });
 
   // Movie Image
@@ -63,25 +65,5 @@ const renderProducts = (movie, container) => {
 
   container.appendChild(card);
 };
-
-// Fetch and render movies on page load
-document.addEventListener("DOMContentLoaded", async function () {
-  const productsContainer = document.getElementById("products-container");
-
-  if (!productsContainer) {
-    console.error("Error: products-container not found.");
-    return;
-  }
-
-  const movies = await fetchMovieList();
-  if (!movies) {
-    console.error("No movies found.");
-    return;
-  }
-
-  console.log("Fetched movies:", movies);
-
-  movies.forEach((movie) => renderProducts(movie, productsContainer));
-});
 
 export { renderProducts };
