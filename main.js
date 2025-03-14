@@ -54,3 +54,29 @@ searchCloseBtn.addEventListener("click", () => {
 });
 
 // LUKAS PART END
+// Ankita part start
+
+import { renderProducts } from "./modules/ui.js";
+import { fetchMovieList } from "./modules/network.js";
+
+document.addEventListener("DOMContentLoaded", async function () {
+  const productsContainer = document.getElementById("products-container");
+
+  if (!productsContainer) {
+    console.error("Error: products-container not found.");
+    return;
+  }
+
+  try {
+    const movies = await fetchMovieList();
+    if (!movies || movies.length === 0) {
+      console.error("No movies found.");
+      return;
+    }
+
+    console.log("Fetched movies:", movies);
+    movies.forEach((movie) => renderProducts(movie, productsContainer));
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+  }
+});
