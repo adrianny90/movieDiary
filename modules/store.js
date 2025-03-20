@@ -2,6 +2,7 @@
 
 const storeMovies = (film) => {
   let oldMovies = JSON.parse(localStorage.getItem("movies")) || [];
+  // avoidRep flag used to decide whether to add or delete item in localStorage
   let avoidRep = false;
   let index = 0;
   let i = 0;
@@ -28,6 +29,7 @@ const retrieveMovies = () => {
   //console.log(likedMovies);
   return likedMovies;
 };
+// function used to check if movie is already in localStorage
 const checkStatus = (film) => {
   const oldMovies = JSON.parse(localStorage.getItem("movies")) || [];
   let likeStatus = false;
