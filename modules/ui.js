@@ -48,13 +48,6 @@ const renderProducts = (movie, container, status) => {
   description.textContent =
     movie.description?.substring(0, 100) + "..." || "No description available.";
 
-  // // Add to List Button
-  // const addBtn = document.createElement("button");
-  // addBtn.className =
-  //   "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-3 rounded w-full";
-  // addBtn.textContent = "Add to List";
-  // addBtn.addEventListener("click", () => addToMovieList(movie));
-
   // Append Elements
   card.appendChild(favoriteBtn);
   card.appendChild(img);
